@@ -17,3 +17,7 @@ m
 =src/main/java/com/elefants/shorturl/users/UserController.java,7\7\77bdd55c89ae709365d7a2cbb11dcf6412e4ded9
 p
 @src/main/java/com/elefants/shorturl/users/CreateUserRequest.java,7\a\7a4f74e2ba767d6366388f4ebae29429de24eb7e
+m
+=src/main/java/com/elefants/shorturl/url/UrlCreateRequest.java,d\9\d957465cfa274338c4253db85879c484d21d0039
+l
+<src/main/java/com/elefants/shorturl/users/UserVolidator.java,2\f\2f47da2f98f98c1c3e8077e68123a9b16846a1df

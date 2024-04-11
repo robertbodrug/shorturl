@@ -16,9 +16,22 @@ public class UserController {
     public void createUser(@RequestBody CreateUserRequest request){
         //TODO validation and creating user
     }
-    @GetMapping("/login")
-    public String loginUser(@RequestParam(name = "username") String username){
-        //TODO returning client
+//    @GetMapping("/login")
+//    public String loginUser(@RequestParam(name = "username") String username){
+//        TODO returning client
+//        return "";
+//    }
+//
+
+    @PutMapping("/{username}")
+    public String updateUser(@PathVariable(name = "username") String username,
+    @RequestBody CreateUserRequest request){
+        //TODO edit client
+        return "";
+    }
+    @DeleteMapping
+    public String deleteUser(@PathVariable(name = "username") String username){
+        //TODO delete client
         return "";
     }
 }
