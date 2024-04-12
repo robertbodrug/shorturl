@@ -21,3 +21,10 @@ m
 =src/main/java/com/elefants/shorturl/url/UrlCreateRequest.java,d\9\d957465cfa274338c4253db85879c484d21d0039
 l
 <src/main/java/com/elefants/shorturl/users/UserValidator.java,d\1\d1f3affaefbad82e34eeba133de98dcac3f76031
+i
+9src/main/java/com/elefants/shorturl/users/UserEntity.java,7\7\7727e553d2d299618ef0f1b89229608d430a00b3
+c
+3src/main/java/com/elefants/shorturl/users/Role.java,0\d\0d1c1a2a5a430f3cd45ce13e9e293ed480fd6a9b
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302

@@ -1,6 +1,5 @@
 package com.elefants.shorturl.url;
 
-import com.elefants.shorturl.users.User;
 import com.elefants.shorturl.users.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

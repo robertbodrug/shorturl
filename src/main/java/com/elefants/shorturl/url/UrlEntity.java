@@ -1,6 +1,5 @@
 package com.elefants.shorturl.url;
 
-import com.elefants.shorturl.users.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

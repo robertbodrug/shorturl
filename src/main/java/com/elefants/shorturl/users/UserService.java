@@ -9,8 +9,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository repository;
-    public User findByUsername(String id) {
-        Optional<User> user = repository.findById(id);
+    public UserEntity findByUsername(String id) {
+        Optional<UserEntity> user = repository.findById(id);
 
         if (user.isEmpty()) {
             return null;
