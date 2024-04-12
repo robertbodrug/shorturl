@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS url (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    short_url VARCHAR(2048) NOT NULL,
+    long_url VARCHAR(2048) NOT NULL,
+    score INT NOT NULL,
+    is_active BOOLEAN NOT NULL
+);
