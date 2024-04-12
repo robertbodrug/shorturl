@@ -20,4 +20,4 @@ p
 m
 =src/main/java/com/elefants/shorturl/url/UrlCreateRequest.java,d\9\d957465cfa274338c4253db85879c484d21d0039
 l
-<src/main/java/com/elefants/shorturl/users/UserVolidator.java,2\f\2f47da2f98f98c1c3e8077e68123a9b16846a1df
+<src/main/java/com/elefants/shorturl/users/UserValidator.java,d\1\d1f3affaefbad82e34eeba133de98dcac3f76031
