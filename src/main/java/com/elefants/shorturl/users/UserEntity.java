@@ -1,9 +1,6 @@
 package com.elefants.shorturl.users;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +17,11 @@ public class UserEntity {
     String password;
     @Enumerated(EnumType.STRING)
     Role role;
+
+    public UserEntity(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
     //@OneToMany(mappedBy="user",cascade = CascadeType.REMOVE)
     //List<UrlEntity> urls;
 }
