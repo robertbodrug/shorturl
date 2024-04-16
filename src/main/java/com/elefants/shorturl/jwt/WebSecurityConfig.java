@@ -1,7 +1,6 @@
 package com.elefants.shorturl.jwt;
 
 import com.elefants.shorturl.jwt.service.AuthenticationService;
-import com.elefants.shorturl.users.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

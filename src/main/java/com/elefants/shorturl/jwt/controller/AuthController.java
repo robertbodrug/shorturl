@@ -7,7 +7,6 @@ import com.elefants.shorturl.jwt.request.LoginRequest;
 import com.elefants.shorturl.jwt.request.SignUpRequest;
 import com.elefants.shorturl.jwt.response.JwtResponse;
 import com.elefants.shorturl.jwt.service.AuthenticationService;
-import com.elefants.shorturl.users.UserService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
