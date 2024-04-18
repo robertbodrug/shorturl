@@ -1,0 +1,23 @@
+version: '3'
+services:
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: 'spring-app'
+    ports:
+      - 9092:9092
+    environment:
+      - 'SPRING_APPLICATION_NAME=shorturl'
+      - 'SPRING_H2_CONSOLE_ENABLED=true'
+      - 'SPRING_DATASOURCE_URL=jdbc:h2:mem:testdb'
+      - 'SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.h2.Driver'
+      - 'SPRING_DATASOURCE_USERNAME=sa'
+      - 'SPRING_DATASOURCE_PASSWORD='
+      - 'SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.H2Dialect'
+      - 'SPRING_THYMELEAF_PREFIX=classpath:/templates/'
+      - 'SPRING_THYMELEAF_SUFFIX=.html'
+      - 'SPRING_THYMELEAF_MODE=HTML'
+      - 'SERVER_PORT=9092'
+      - 'DEMO_APP_JWT_SECRET=shorturl'
+      - 'DEMO_APP_JWT_EXPIRATION_MS=86400000'

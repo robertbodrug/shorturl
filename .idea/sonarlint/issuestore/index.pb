@@ -20,6 +20,8 @@ p
 m
 =src/main/java/com/elefants/shorturl/url/UrlCreateRequest.java,d\9\d957465cfa274338c4253db85879c484d21d0039
 l
+<src/main/java/com/elefants/shorturl/users/UserVolidator.java,2\f\2f47da2f98f98c1c3e8077e68123a9b16846a1df
+l
 <src/main/java/com/elefants/shorturl/users/UserValidator.java,d\1\d1f3affaefbad82e34eeba133de98dcac3f76031
 i
 9src/main/java/com/elefants/shorturl/users/UserEntity.java,7\7\7727e553d2d299618ef0f1b89229608d430a00b3
@@ -28,3 +30,24 @@ c
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+n
+>src/main/java/com/elefants/shorturl/jwt/AuthEntryPointJwt.java,4\7\4742547b045efecd1a72f63b9a9fc38788a1a82b
+l
+<src/main/java/com/elefants/shorturl/jwt/AuthTokenFilter.java,5\f\5f299d58f3158427ad31a0a04ec81b71031c7787
+C
+docker-compose.yaml,e\f\ef8def03dc8f162799089e9b5f4321201c8810d5
+:
+
+Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+O
+.idea/modules/shorturl.main.iml,2\6\266d9a88a50d8cc7a6fba6a7056350506c7636f9
+O
+.idea/modules/shorturl.test.iml,f\b\fb57cb287943cb618853059b13bbb219d56fa72b
+J
+.idea/modules/shorturl.iml,2\d\2d017854646a0331f7c9df0db6de401e55b30445
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
