@@ -9,3 +9,4 @@ INSERT INTO urls (id, short_url, long_url, score, is_active, username) VALUES
         (2, 'http://short.url/def', 'http://another-long-url.com/this-is-another-long-url', 50, TRUE, 'user2'),
         (3, 'http://short.url/ghi', 'http://yet-another-long-url.com/this-is-yet-another-long-url', 75, TRUE, 'admin1'),
         (4, 'http://short.url/jkl', 'http://short-url.com/short-url', 25, FALSE, 'guest1');
+
