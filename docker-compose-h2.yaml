@@ -14,8 +14,5 @@ services:
       - 'SPRING_DATASOURCE_USERNAME=sa'
       - 'SPRING_DATASOURCE_PASSWORD='
       - 'SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.H2Dialect'
-      - 'SPRING_THYMELEAF_PREFIX=classpath:/templates/'
-      - 'SPRING_THYMELEAF_SUFFIX=.html'
-      - 'SPRING_THYMELEAF_MODE=HTML'
       - 'SERVER_PORT=9092'
       - 'DEMO_APP_JWT_SECRET=shorturl'

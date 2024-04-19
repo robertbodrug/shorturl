@@ -1,5 +1,5 @@
 CREATE TABLE  IF NOT EXISTS users (
-        username VARCHAR(50) NOT NULL,
+        username VARCHAR(50) PRIMARY KEY,
         password VARCHAR(50) NOT NULL,
         role VARCHAR NOT NULL
 );
