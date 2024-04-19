@@ -58,6 +58,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) throws UserAlreadyExistException {
+        log.info("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         authenticationService.registerUser(signUpRequest.getUsername(),
                 signUpRequest.getPassword());
         return ResponseEntity.accepted().build();

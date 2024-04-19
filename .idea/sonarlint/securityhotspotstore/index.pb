@@ -11,8 +11,6 @@ i
 9src/main/java/com/elefants/shorturl/url/UrlValidator.java,7\8\780d0c0ab990c22bf8196e8cbfc1e4db9b72eb88
 j
 :src/main/java/com/elefants/shorturl/url/UrlRepository.java,d\d\ddf8fe8686a82b2eff2f59a8ae076fa5d3f4e100
-c
-3src/main/java/com/elefants/shorturl/users/User.java,7\7\778088db9447d7455e4baa8f12ee483cbcbf3812
 m
 =src/main/java/com/elefants/shorturl/users/UserController.java,7\7\77bdd55c89ae709365d7a2cbb11dcf6412e4ded9
 p
@@ -28,3 +26,17 @@ c
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+v
+Fsrc/main/java/com/elefants/shorturl/jwt/controller/AuthController.java,b\1\b102d3d46da13f95c13b9f668670f855e043a4ed
+z
+Jsrc/main/java/com/elefants/shorturl/jwt/service/AuthenticationService.java,2\6\26cc70588469ecda094b49b6f99186a9b1fd794c
+l
+<src/main/java/com/elefants/shorturl/jwt/AuthTokenFilter.java,5\f\5f299d58f3158427ad31a0a04ec81b71031c7787
+r
+Bsrc/main/java/com/elefants/shorturl/jwt/request/SignUpRequest.java,0\7\0729721033c855167986bf24d0b0ab2a36c07b5d
+m
+=src/main/java/com/elefants/shorturl/users/UserRepository.java,8\b\8b4edc13695475633f312cd33c761e1801a5e00a
+?
+settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
