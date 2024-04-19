@@ -1,0 +1,21 @@
+version: '3'
+services:
+  shorturl-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: 'shorturl-app'
+    ports:
+      - 9092:9092
+    environment:
+      - 'SPRING_APPLICATION_NAME=shorturl'
+      - 'SPRING_DATASOURCE_URL=jdbc:h2:mem:testdb'
+      - 'SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.h2.Driver'
+      - 'SPRING_DATASOURCE_USERNAME=sa'
+      - 'SPRING_DATASOURCE_PASSWORD='
+      - 'SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.H2Dialect'
+      - 'SPRING_THYMELEAF_PREFIX=classpath:/templates/'
+      - 'SPRING_THYMELEAF_SUFFIX=.html'
+      - 'SPRING_THYMELEAF_MODE=HTML'
+      - 'SERVER_PORT=9092'
+      - 'DEMO_APP_JWT_SECRET=shorturl'
