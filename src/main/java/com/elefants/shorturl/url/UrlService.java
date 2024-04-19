@@ -2,6 +2,7 @@ package com.elefants.shorturl.url;
 
 import com.elefants.shorturl.users.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ import java.util.Random;
 @Service
 @RequiredArgsConstructor
 public class UrlService {
-    private final UserService userService;
+    //private final UserService userService;
     private final UrlRepository repository;
     public UrlCreateResponse create(/*String id, */UrlCreateRequest request) {
         Optional<UrlCreateResponse.Error> validationError = validateCreateFields(request);
@@ -58,7 +59,7 @@ public class UrlService {
         return url.getLongUrl();
     }
 
-    private String generateShortUrl() {
+    public String generateShortUrl() {
         int length = new Random().nextInt(3) + 6; // Generate length between 6 and 8
         String characters = "abcdefghijklmnopqrstuvwxyz0123456789";
         StringBuilder shortLink = new StringBuilder();
@@ -69,7 +70,7 @@ public class UrlService {
         return shortLink.toString();
     }
 
-    private Optional<UrlCreateResponse.Error> validateCreateFields(UrlCreateRequest request) {
+    public Optional<UrlCreateResponse.Error> validateCreateFields(UrlCreateRequest request) {
         try {
             URL link = new URL(request.getLongUrl());
             HttpURLConnection connection = (HttpURLConnection) link.openConnection();
