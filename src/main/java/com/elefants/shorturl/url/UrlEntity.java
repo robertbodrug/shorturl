@@ -15,7 +15,7 @@ import com.elefants.shorturl.users.UserEntity;
 @AllArgsConstructor
 public class UrlEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "short_url", nullable = false)

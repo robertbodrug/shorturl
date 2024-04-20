@@ -5,13 +5,13 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 public class UrlCreateRequest {
-    private String shortUrl;
+    //private String shortUrl;
     private String longUrl;
-    private Long score;
-    private Boolean isActive;
+    //private Long score;
+    //private Boolean isActive;
     //private String userId;
 
-    public UrlCreateRequest(String longUrl) {
+    /*public UrlCreateRequest(String longUrl) {
         this.longUrl = longUrl;
-    }
+    }*/
 }
