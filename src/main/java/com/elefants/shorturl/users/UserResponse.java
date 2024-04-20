@@ -1,4 +1,4 @@
-package com.elefants.shorturl.jwt.response;
+package com.elefants.shorturl.users;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,9 +11,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class JwtResponse {
+public class UserResponse {
 
-    private String token;
     private String username;
     private List<String> role;
 

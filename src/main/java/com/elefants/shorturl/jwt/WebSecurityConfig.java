@@ -1,6 +1,6 @@
 package com.elefants.shorturl.jwt;
 
-import com.elefants.shorturl.jwt.service.AuthenticationService;
+import com.elefants.shorturl.users.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,7 +32,7 @@ public class WebSecurityConfig {
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/auth/**").permitAll()
+                        auth.requestMatchers("/user/**").permitAll()
                                 .anyRequest().authenticated()
                 );
 

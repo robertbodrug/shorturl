@@ -29,7 +29,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         String headerAuth = request.getHeader("Authorization");
 
         if (StringUtils.hasText(headerAuth) && headerAuth.startsWith("Bearer ")) {
-            return headerAuth.substring(7, headerAuth.length());
+            return headerAuth.substring(7);
         }
 
         return null;
@@ -43,13 +43,16 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             if(Objects.nonNull(jwt) && jwtUtils.validateJwtToken(jwt)){
                 String username = jwtUtils.getUserNameFromJwtToken(jwt);
                 Claims claims = jwtUtils.getUserRolesFromJwtToken(jwt);
-                ArrayList<HashMap<String, String>> athor = (ArrayList) claims.get("Authorities");
-                Set<GrantedAuthority> athorities = new HashSet<>();
-                athor.forEach(map -> map
-                        .forEach((key, value) -> athorities.add(new SimpleGrantedAuthority(value))));
+                ArrayList<HashMap<String, String>> author = (ArrayList) claims.get("Authorities");
+                Set<GrantedAuthority> authorities = new HashSet<>();
+                author.forEach(map -> map
+                        .forEach((key, value) -> authorities.add(new SimpleGrantedAuthority(value))));
+
+                log.info(authorities.stream().toString());
 
 
-                UserDetailsImpl userDetails = new UserDetailsImpl(username, athorities);
+
+                UserDetailsImpl userDetails = new UserDetailsImpl(username, authorities);
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
                         userDetails, userDetails.getAuthorities(), userDetails.getAuthorities());
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));

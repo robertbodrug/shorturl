@@ -1,10 +1,7 @@
-package com.elefants.shorturl.jwt.service;
+package com.elefants.shorturl.users;
 
 import com.elefants.shorturl.exception.UserAlreadyExistException;
 import com.elefants.shorturl.jwt.UserDetailsImpl;
-import com.elefants.shorturl.users.Role;
-import com.elefants.shorturl.users.UserEntity;
-import com.elefants.shorturl.users.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -44,17 +41,16 @@ public class AuthenticationService  implements UserDetailsService {
 
 
     @Transactional
-    public void registerUser(String username, String password) throws UserAlreadyExistException {
+    public void registerUser(CreateUserRequest signUpRequest) throws UserAlreadyExistException {
 
-        if (userRepository.existsByUsername(username)) {
-            throw new UserAlreadyExistException(username);
+        UserEntity entity = UserEntity.builder().username(signUpRequest.getUsername()).password(signUpRequest.getPassword()).build();
+        if (userRepository.existsByUsername(entity.getUsername())) {
+            throw new UserAlreadyExistException(entity.getUsername());
         }
 
-        UserEntity user = new UserEntity(username, encoder.encode(password));
-
         Set<Role> roleEntities = Collections.singleton(Role.USER);
-        user.setRole(roleEntities.stream().findFirst().get());
+        entity.setRole(roleEntities.stream().findFirst().get());
 
-        userRepository.save(user);
+        userRepository.save(entity);
     }
 }

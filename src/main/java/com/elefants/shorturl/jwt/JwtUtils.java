@@ -1,6 +1,6 @@
 package com.elefants.shorturl.jwt;
 
-import com.elefants.shorturl.jwt.service.AuthenticationService;
+import com.elefants.shorturl.users.AuthenticationService;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
