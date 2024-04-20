@@ -1,8 +1,8 @@
 INSERT INTO users (username, password, role) VALUES
-        ('user1', '{noop}user1', 'user'),
-        ('user2', '{noop}user2', 'user'),
-        ('admin1', '{noop}admin1', 'admin'),
-        ('user3', '{noop}user3', 'user');
+        ('user1', '{noop}user1', 'USER'),
+        ('user2', '{noop}user2', 'USER'),
+        ('admin1', '{noop}admin1', 'ADMIN'),
+        ('user3', '{noop}user3', 'USER');
 
 INSERT INTO urls (id, short_url, long_url, score, is_active, username) VALUES
         (1, 'http://short.url/abc', 'http://very-long-url.com/this-is-a-very-long-url', 100, TRUE, 'user1'),

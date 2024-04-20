@@ -1,6 +1,0 @@
-CREATE TABLE IF NOT EXISTS USERS (
-    username VARCHAR(128) NOT NULL,
-    password VARCHAR(128) NOT NULL,
-    role VARCHAR(5) NOT NULL,
-    PRIMARY KEY(username)
-);

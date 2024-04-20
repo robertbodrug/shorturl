@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface UrlRepository extends JpaRepository<UrlEntity, Long> {
     // Additional query methods can be defined here
-    @Query(nativeQuery = true, value = "SELECT * FROM url WHERE id = :id")
+    @Query(nativeQuery = true, value = "SELECT * FROM urls WHERE id = :id")
     UrlEntity getUrl(Long id);
 
-    @Query(nativeQuery = true, value = "SELECT * FROM url WHERE short_url = :shortUrl")
+    @Query(nativeQuery = true, value = "SELECT * FROM urls WHERE short_url = :shortUrl")
     UrlEntity findByShortUrl(String shortUrl);
 }
