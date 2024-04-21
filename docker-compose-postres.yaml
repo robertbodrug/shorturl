@@ -22,5 +22,6 @@ services:
     environment:
       - 'SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres'
       - 'SPRING_DATASOURCE_USERNAME=sa'
+      - 'SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver'
       - 'SPRING_DATASOURCE_PASSWORD='
       - 'SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect'
