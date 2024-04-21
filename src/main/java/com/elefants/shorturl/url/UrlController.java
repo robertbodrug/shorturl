@@ -17,15 +17,26 @@ import java.security.Principal;
 public class UrlController {
     private final UrlService urlService;
 
-    @PostMapping
-    public UrlCreateResponse createUrl(/*Principal principal, */@RequestBody UrlCreateRequest request) {
+    @PostMapping("/create")
+    public UrlCreateResponse createUrl(/*Principal principal,*/ @RequestBody UrlCreateRequest request) {
         return urlService.create(/*principal.getName(),*/ request);
     }
 
     @GetMapping
-    public UrlGetResponse getNote(@RequestParam(name = "id") Long id) {
-        return urlService.getUrl(id);
+    public UrlGetResponse getUrl(/*Principal principal,*/ @RequestParam(name = "id") Long id) {
+        return urlService.get(/*principal.getName(),*/ id);
     }
+
+    @PatchMapping
+    public UrlUpdateResponse update(/*Principal principal,*/ @RequestBody UrlUpdateRequest request) {
+        return urlService.update(/*principal.getName(),*/ request);
+    }
+
+    @DeleteMapping
+    public UrlDeleteResponse delete(/*Principal principal,*/ @RequestParam(name = "id") long id) {
+        return urlService.delete(/*principal.getName(),*/ id);
+    }
+
     @GetMapping("/{shortUrl}")
         public ResponseEntity<Void> getLongUrl(@PathVariable(name = "shortUrl")String shortUrl) {
         // Retrieve the long URL from the service

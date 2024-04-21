@@ -1,9 +1,9 @@
 package com.elefants.shorturl.url;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
-public class UrlCreateRequest {
+public class UrlUpdateRequest {
+    private long id;
     private String longUrl;
 }
