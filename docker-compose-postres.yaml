@@ -6,7 +6,9 @@ services:
     ports:
       - 5432:5432
     environment:
+      - 'POSTGRES_USER=${DB_USERNAME_FROM_SYSTEM}'
       - 'POSTGRES_USER=${SPRING_DATASOURCE_USERNAME}'
+
       - 'POSTGRES_PASSWORD=${DB_PASSWORD_FROM_SYSTEM}'
       - 'POSTGRES_DB=postgres'
 
@@ -21,7 +23,7 @@ services:
       - postgres
     environment:
       - 'SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres'
-      - 'SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}'
+      - 'SPRING_DATASOURCE_USERNAME=${DB_USERNAME_FROM_SYSTEM}'
       - 'SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver'
       - 'SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD_FROM_SYSTEM}'
       - 'SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect'
