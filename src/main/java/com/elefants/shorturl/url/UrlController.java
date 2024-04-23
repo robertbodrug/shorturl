@@ -1,6 +1,5 @@
 package com.elefants.shorturl.url;
 
-import com.elefants.shorturl.users.CreateUserRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,23 +17,23 @@ public class UrlController {
     private final UrlService urlService;
 
     @PostMapping("/create")
-    public UrlCreateResponse createUrl(/*Principal principal,*/ @RequestBody UrlCreateRequest request) {
-        return urlService.create(/*principal.getName(),*/ request);
+    public UrlCreateResponse createUrl(Principal principal, @RequestBody UrlCreateRequest request) {
+        return urlService.create(principal.getName(), request);
     }
 
     @GetMapping
-    public UrlGetResponse getUrl(/*Principal principal,*/ @RequestParam(name = "id") Long id) {
-        return urlService.get(/*principal.getName(),*/ id);
+    public UrlGetResponse getUrl(Principal principal, @RequestParam(name = "id") Long id) {
+        return urlService.get(principal.getName(), id);
     }
 
     @PatchMapping
-    public UrlUpdateResponse update(/*Principal principal,*/ @RequestBody UrlUpdateRequest request) {
-        return urlService.update(/*principal.getName(),*/ request);
+    public UrlUpdateResponse update(Principal principal, @RequestBody UrlUpdateRequest request) {
+        return urlService.update(principal.getName(), request);
     }
 
     @DeleteMapping
-    public UrlDeleteResponse delete(/*Principal principal,*/ @RequestParam(name = "id") long id) {
-        return urlService.delete(/*principal.getName(),*/ id);
+    public UrlDeleteResponse delete(Principal principal, @RequestParam(name = "id") long id) {
+        return urlService.delete(principal.getName(), id);
     }
 
     @GetMapping("/{shortUrl}")

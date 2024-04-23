@@ -18,16 +18,14 @@ import java.util.Random;
 public class UrlService {
     private final UserService userService;
     private final UrlRepository repository;
+    private final Random random = new Random();
     private Long idNum = 5L; // should be destroyed when second migration will be deleted
-    public UrlCreateResponse create(/*String id,*/ UrlCreateRequest request) {
+    public UrlCreateResponse create(String id, UrlCreateRequest request) {
         Optional<UrlCreateResponse.Error> validationError = validateCreateFields(request);
 
         if (validationError.isPresent()) {
             return UrlCreateResponse.failed(validationError.get());
         }
-
-        //UserEntity user = userService.findByUsername(id);
-        String id = "user1"; // created for test, when security task will finish, this line should be destroyed
         UserEntity user = userService.findByUsername(id);
 
 
@@ -43,27 +41,27 @@ public class UrlService {
         return UrlCreateResponse.success(createdUrl.getId(), createdUrl.getShortUrl());
     }
 
-    public UrlGetResponse get(/*String username,*/ Long id) {
+    public UrlGetResponse get(String username, Long id) {
         Optional<UrlEntity> optionalUrl = repository.findById(id);
 
         if (optionalUrl.isEmpty()) {
             return UrlGetResponse.failed(UrlGetResponse.Error.INVALID_URL_ID);
         }
 
-        /*boolean isNotUserUrl = isNotUserNote(username, url);
+        UrlEntity url = optionalUrl.get();
+
+        boolean isNotUserUrl = isNotUserUrl(username, url);
 
         if (isNotUserUrl) {
-            return UrlDeleteResponse.failed(UrlDeleteResponse.Error.INSUFFICIENT_PRIVILEGES);
-        }*/
-
-        UrlEntity url = optionalUrl.get();
+            return UrlGetResponse.failed(UrlGetResponse.Error.INVALID_URL_ID);
+        }
 
         repository.getUrl(url.getId());
 
         return UrlGetResponse.success(url);
     }
 
-    public UrlUpdateResponse update(/*String username,*/ UrlUpdateRequest request) {
+    public UrlUpdateResponse update(String username, UrlUpdateRequest request) {
         Optional<UrlEntity> optionalNote = repository.findById(request.getId());
 
         if (optionalNote.isEmpty()) {
@@ -72,11 +70,11 @@ public class UrlService {
 
         UrlEntity url = optionalNote.get();
 
-        /*boolean isNotUserUrl = isNotUserUrl(username, url);
+        boolean isNotUserUrl = isNotUserUrl(username, url);
 
         if (isNotUserUrl) {
             return UrlUpdateResponse.failed(UrlUpdateResponse.Error.INSUFFICIENT_PRIVILEGES);
-        }*/
+        }
 
         Optional<UrlUpdateResponse.Error> validationError = validateUpdateFields(request);
 
@@ -94,7 +92,7 @@ public class UrlService {
         return UrlUpdateResponse.success(url);
     }
 
-    public UrlDeleteResponse delete(/*String username,*/ long id) {
+    public UrlDeleteResponse delete(String username, long id) {
         Optional<UrlEntity> optionalNote = repository.findById(id);
 
         if (optionalNote.isEmpty()) {
@@ -103,11 +101,11 @@ public class UrlService {
 
         UrlEntity url = optionalNote.get();
 
-        /*boolean isNotUserUrl = isNotUserNote(username, url);
+        boolean isNotUserUrl = isNotUserUrl(username, url);
 
         if (isNotUserUrl) {
             return UrlDeleteResponse.failed(UrlDeleteResponse.Error.INSUFFICIENT_PRIVILEGES);
-        }*/
+        }
 
         repository.delete(url);
 
@@ -124,11 +122,11 @@ public class UrlService {
     }
 
     public String generateShortUrl() {
-        int length = new Random().nextInt(3) + 6; // Generate length between 6 and 8
+        int length = random.nextInt(3) + 6; // Generate length between 6 and 8
         String characters = "abcdefghijklmnopqrstuvwxyz0123456789";
         StringBuilder shortLink = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            int index = new Random().nextInt(characters.length());
+            int index = random.nextInt(characters.length());
             shortLink.append(characters.charAt(index));
         }
         return shortLink.toString();
