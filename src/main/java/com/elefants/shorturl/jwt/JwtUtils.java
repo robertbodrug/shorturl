@@ -1,12 +1,11 @@
 package com.elefants.shorturl.jwt;
 
-import com.elefants.shorturl.jwt.service.AuthenticationService;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -22,29 +21,27 @@ public class JwtUtils {
     @Value("${demo.app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
-    @Autowired
-    private AuthenticationService authenticationService;
+    public String generateJwtToken(Authentication authentication) {
 
-    public String generateJwtToken(String username) {
+        UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
 
-        UserDetailsImpl userDetails = authenticationService.loadUserByUsername(username);
-
-            return Jwts.builder()
-                    .subject(userDetails.getUsername())
-                    .claim("Authorities", userDetails.getAuthorities())
-                    .issuedAt(new Date())
-                    .expiration(new Date((new Date()).getTime() + jwtExpirationMs))
-                    .signWith(key(), SignatureAlgorithm.HS256)
-                    .compact();
-
+        return Jwts.builder()
+                .subject((userPrincipal.getUsername()))
+                .claim("Authorities", userPrincipal.getAuthorities())
+                .issuedAt(new Date())
+                .expiration(new Date((new Date()).getTime() + jwtExpirationMs))
+                .signWith(key())
+                .compact();
     }
 
+    private SecretKey key() {
+        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
+    }
 
     public String getUserNameFromJwtToken(String token) {
         return Jwts.parser().verifyWith(key()).build()
                 .parseSignedClaims(token).getPayload().getSubject();
     }
-
 
     public Claims getUserRolesFromJwtToken(String token) {
         return Jwts.parser().verifyWith(key()).build()
@@ -66,10 +63,6 @@ public class JwtUtils {
         }
 
         return false;
-    }
-
-    private SecretKey key() {
-        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
     }
 
 }

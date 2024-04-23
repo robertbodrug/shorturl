@@ -7,7 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -23,9 +25,10 @@ public class UserEntity {
     @Column(name = "password", nullable = false, length = 50)
     private String password;
 
-    @Column(name = "role")
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_username"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<RoleEntity> roles = new HashSet<>();
 
     public UserEntity(String username, String password) {
         this.username = username;

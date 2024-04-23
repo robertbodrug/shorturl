@@ -1,37 +1,36 @@
 package com.elefants.shorturl.users;
 
+import com.elefants.shorturl.users.dto.delete.DeleteUserResponse;
+import com.elefants.shorturl.users.dto.get.GetAllUrlForUserResponse;
+import com.elefants.shorturl.users.dto.get.GetAllUsersResponse;
+import com.elefants.shorturl.users.dto.update.UpdateUserResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/user")
+//@RequestMapping("/user")
 public class UserController {
-    @GetMapping("/{username}")
-    public String getUser(@PathVariable(name = "username") String username){
-        //TODO returning client
-        return "";
+
+    private UserService userService;
+//, відсутність токену авторизації в заголовку запиту
+    @DeleteMapping("/user/{username}")
+    public DeleteUserResponse deleteUser(@PathVariable(name = "username") String username){
+        return userService.deleteUser(username);
     }
 
-    @PostMapping
-    public void createUser(@RequestBody CreateUserRequest request){
-        //TODO validation and creating user
+    @PutMapping("/user/{username}")
+    public UpdateUserResponse updateUser(@PathVariable(name = "username") String username,
+                                         @RequestBody UserRequest request){
+        return userService.updateUser(request);
     }
-//    @GetMapping("/login")
-//    public String loginUser(@RequestParam(name = "username") String username){
-//        TODO returning client
-//        return "";
-//    }
-//
 
-    @PutMapping("/{username}")
-    public String updateUser(@PathVariable(name = "username") String username,
-    @RequestBody CreateUserRequest request){
-        //TODO edit client
-        return "";
+    @GetMapping("/user/{username}")
+    public GetAllUrlForUserResponse getAllUrlForUser(@PathVariable(name = "username") String username){
+        return userService.getAllUrlForUserResponse(username);
     }
-    @DeleteMapping
-    public String deleteUser(@PathVariable(name = "username") String username){
-        //TODO delete client
-        return "";
-    }
+
+     @GetMapping("/users")
+     public GetAllUsersResponse getAllUsers(){
+        return userService.getAllUsers();
+     }
 }

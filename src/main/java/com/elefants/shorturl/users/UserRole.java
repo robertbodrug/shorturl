@@ -1,4 +1,5 @@
 package com.elefants.shorturl.users;
 
-public class CreateUserRequest {
+public enum UserRole {
+    USER, ADMIN
 }
